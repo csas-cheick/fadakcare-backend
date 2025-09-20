@@ -1,0 +1,22 @@
+# Fichiers/dossiers compilés
+bin/
+obj/
+
+# Fichiers temporaires
+*.user
+*.rsuser
+*.suo
+*.vspscc
+*.vssscc
+.vs/
+
+# Logs
+*.log
+
+# Config locales
+appsettings.Development.json
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
