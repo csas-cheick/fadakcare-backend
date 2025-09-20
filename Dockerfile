@@ -3,10 +3,13 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["backend/backend.csproj", "backend/"]
-RUN dotnet restore "backend/backend.csproj"
-COPY . .
-WORKDIR "/src/backend"
+
+# Copier uniquement les fichiers projet d'abord pour restaurer les dépendances
+COPY backend.csproj ./
+RUN dotnet restore "backend.csproj"
+
+# Copier le reste du code
+COPY . ./
 RUN dotnet publish "backend.csproj" -c Release -o /app/publish
 
 # Runtime stage
